@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+import "third_party/osi3/osi_common.proto";
+import "third_party/osi3/osi_hostvehicledata.proto";
+import "third_party/osi3/osi_sensordata.proto";
+
+package infra_radar_transform;
+
+service InfraRadarPositionTransform {
+
+    rpc transform (TransformRequest) returns (TransformResponse) {
+    }
+}
+
+message TransformRequest {
+
+    // Car positioning information in the GPS Exchange Format (gpx) (https://www.topografix.com/gpx/1/1/gpx.xsd)
+    bytes host_vehicle_data = 1;
+
+    // Asfinag odo radar interface (version 1.20) data
+    bytes asfinag_navtech_zip = 2;}
+
+message TransformResponse {
+    repeated osi3.SensorData sensor_data = 1;
+}

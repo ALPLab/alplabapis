@@ -1,0 +1,27 @@
+syntax = "proto3";
+package rsradar;
+
+
+service RoadSideRadarService {
+
+    rpc Download (DataSelector) returns (stream RadarTrafficFlowFileChunk) {
+    }
+
+}
+
+
+message RadarTrafficFlowFileChunk {
+    bytes content = 1;
+}
+
+message DataSelector {
+    TimeRange time = 1;
+}
+
+message TimeRange {
+    string startTime = 1;
+}
+
+
+
+
