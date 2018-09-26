@@ -2,3 +2,4 @@
 	path = open-simulation-interface
 	url = https://github.com/OpenSimulationInterface/open-simulation-interface.git
 	branch = v3.0.1
+	ignore = dirty
