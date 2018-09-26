@@ -1,0 +1,24 @@
+syntax = "proto2";
+
+import "osi_common.proto";
+import "osi_hostvehicledata.proto";
+import "osi_sensordata.proto";
+
+package infra_radar_transform;
+
+service InfraRadarPositionTransform {
+
+    rpc transform (TransformRequest) returns (TransformResponse) {
+    }
+}
+
+message TransformRequest {
+    required bytes host_vehicle_data = 1; // TODO vorschlag lang, lat, timestamp statt gpx. nach gpx status. potentiell grpc subset für gpx checken.
+    required bytes asfinag_navtech_zip = 2;  // json oder als grpc konvertiert. TODO Check Georg
+}
+
+message TransformResponse {
+    // Enthält Daten aus Ego Fahrzeug + Verkehrssfluss.
+    // Potentiell gut geeignet für Simualtionen
+    repeated osi3.SensorData sensor_data = 1;
+}
