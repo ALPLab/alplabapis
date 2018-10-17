@@ -65,3 +65,4 @@ fabric.properties
 gen/
 open-simulation-interface/
 .idea/
+protorepo.iml
