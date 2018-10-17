@@ -1,4 +1,4 @@
-syntax = "proto2";
+syntax = "proto3";
 
 import "osi_common.proto";
 import "osi_hostvehicledata.proto";
@@ -13,8 +13,8 @@ service InfraRadarPositionTransform {
 }
 
 message TransformRequest {
-    required bytes host_vehicle_data = 1; // TODO vorschlag lang, lat, timestamp statt gpx. nach gpx status. potentiell grpc subset für gpx checken.
-    required bytes asfinag_navtech_zip = 2;  // json oder als grpc konvertiert. TODO Check Georg
+    bytes host_vehicle_data = 1; // TODO vorschlag lang, lat, timestamp statt gpx. nach gpx status. potentiell grpc subset für gpx checken.
+    bytes asfinag_navtech_zip = 2;  // json oder als grpc konvertiert. TODO Check Georg
 }
 
 message TransformResponse {
