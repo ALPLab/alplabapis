@@ -54,7 +54,7 @@ function buildProtoForTypes {
 
 
         # Use the docker container for the language we care about and compile
-      docker run -v `pwd`/../open-simulation-interface:/usr/local/include/open-simulation-interface -v `pwd`:/defs namely/protoc-all -l $lang -d /defs -i /usr/local/include/open-simulation-interface
+      docker run -v `pwd`/../open-simulation-interface:/usr/local/include/open-simulation-interface -v `pwd`:/defs namely/protoc-all -l $lang -d /defs -i /usr/local/include/open-simulation-interface  --include_imports
 
       # Copy the generated files out of the pb-* path into the repository
       # that we care about
